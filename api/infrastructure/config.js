@@ -14,10 +14,11 @@ const config = {
   'env': getEnvVar('NODE_ENV', 'dev'),
   'port': getEnvVar('PORT', '8080'),
   'database': {
-    'address': getEnvVar('DATABASE_ADDRESS', ""),
-    'user': getEnvVar('DATABASE_USER', ""),
-    'password': getEnvVar('DATABASE_PASSWORD', ""),
-    'name': getEnvVar('DATABASE_NAME', ""),
+    'host': getEnvVar('DATABASE_HOST', "localhost"),
+    'port': getEnvVar('DATABASE_PORT', "5432"),
+    'user': getEnvVar('DATABASE_USER', "development"),
+    'password': getEnvVar('DATABASE_PASSWORD', "devdatabase"),
+    'database': getEnvVar('DATABASE_NAME', "search-app"),
   },
 };
 

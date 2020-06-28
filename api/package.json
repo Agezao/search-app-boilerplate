@@ -10,7 +10,10 @@
     "express": "^4.17.1",
     "express-swagger-generator": "^1.1.15",
     "express-validation": "^1.0.2",
-    "joi": "^14.0.3"
+    "joi": "^14.0.3",
+    "pg": "^8.2.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.2.2"
   },
   "devDependencies": {
     "eslint": "^6.1.0",
