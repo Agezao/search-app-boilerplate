@@ -4,8 +4,8 @@
   "description": "Boilerplate app to perform search at a database using ORM",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": ""
   },
-  "author": "",
+  "author": "Gabriel Costa",
   "license": "ISC"
 }

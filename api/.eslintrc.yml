@@ -1,0 +1,10 @@
+env:
+  browser: false
+  commonjs: true
+  es6: true
+extends: airbnb-base
+rules:
+  default-case: off
+  max-len: warn
+  class-methods-use-this: off
+  quote-props: off

@@ -1,1 +1,16 @@
+.DS_Store
+*.log
+jest/*
+coverage
 node_modules
+.vscode/
+.eslintcache
+dist
+build/
+.env*
+tmp
+package-lock.json
+yarn.lock
+test
+.vscode
+.local

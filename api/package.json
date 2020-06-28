@@ -1,0 +1,22 @@
+{
+  "name": "search-app-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@hapi/joi": "^15.1.1",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-swagger-generator": "^1.1.15",
+    "express-validation": "^1.0.2",
+    "joi": "^14.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2"
+  },
+  "author": "Gabriel Costa",
+  "license": "ISC"
+}
