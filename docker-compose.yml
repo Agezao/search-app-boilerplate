@@ -8,4 +8,4 @@ services:
       - POSTGRES_USER=development
       - POSTGRES_DB=search-app
     volumes:
-      - ~/database/data:/var/lib/postgresql/data
+      - ./database/data:/var/lib/postgresql/data

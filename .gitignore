@@ -14,3 +14,4 @@ yarn.lock
 test
 .vscode
 .local
+database/data
