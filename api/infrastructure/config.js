@@ -16,9 +16,12 @@ const config = {
   'database': {
     'host': getEnvVar('DATABASE_HOST', "localhost"),
     'port': getEnvVar('DATABASE_PORT', "5432"),
-    'user': getEnvVar('DATABASE_USER', "development"),
+    'username': getEnvVar('DATABASE_USER', "development"),
     'password': getEnvVar('DATABASE_PASSWORD', "devdatabase"),
     'database': getEnvVar('DATABASE_NAME', "search-app"),
+  },
+  'sequelizeDefaults': {
+    'freezeTableName': true,
   },
 };
 
