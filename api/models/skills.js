@@ -12,12 +12,13 @@ const Skill = sequelizeContext.define('Skill',
     ...config.sequelizeDefaults,
     tableName: 'Skills',
     name: { singular: 'skill', plural: 'skills' },
+    timestamps: false,
   }
 );
 
 Skill.associate = function (models) {
   models.Skill.belongsToMany(models.Athlete, {
-    through: 'AthleteSkills',
+    through: models.AthleteSkill,
     as: 'athletes',
     foreignKey: 'skillId'
   });

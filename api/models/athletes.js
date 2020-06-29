@@ -17,9 +17,15 @@ const Athlete = sequelizeContext.define('Athlete',
 
 Athlete.associate = function (models) {
   models.Athlete.belongsToMany(models.Skill, {
-    through: 'AthleteSkills',
+    through: models.AthleteSkill,
     as: 'skills',
     foreignKey: 'athleteId'
+  });
+
+  models.Athlete.hasMany(models.AthleteChampionship, {
+    as: 'championships',
+    foreignKey: 'athleteId',
+    onDelete: 'cascade',
   });
 };
 

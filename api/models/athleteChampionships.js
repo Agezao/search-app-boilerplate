@@ -2,7 +2,7 @@ const { DataTypes } = require('sequelize');
 const config = require('../infrastructure/config');
 const sequelizeContext = require('../infrastructure/sequelize.context');
 
-const AthleteSkill = sequelizeContext.define('AthleteSkill',
+const AthleteChampionship = sequelizeContext.define('AthleteChampionship',
   {
     athleteId: {
       type: DataTypes.INTEGER,
@@ -12,22 +12,16 @@ const AthleteSkill = sequelizeContext.define('AthleteSkill',
         key: 'id'
       }
     },
-    skillId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'Skill',
-        key: 'id'
-      }
-    },
+    name: DataTypes.STRING,
+    year: DataTypes.DATEONLY,
   },
   {
     sequelize: sequelizeContext,
     ...config.sequelizeDefaults,
-    tableName: 'AthleteSkills',
-    name: { singular: 'athleteSkill', plural: 'athleteSkills' },
+    tableName: 'AthleteChampionships',
+    name: { singular: 'athleteChampionship', plural: 'AthleteChampionships' },
     timestamps: false,
   }
 );
 
-module.exports = AthleteSkill;
+module.exports = AthleteChampionship;
