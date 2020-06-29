@@ -3,6 +3,8 @@ services:
   database:
     container_name: search-app-db
     image: "postgres"
+    ports:
+      - 5432:5432
     environment:
       - POSTGRES_PASSWORD=devdatabase
       - POSTGRES_USER=development
