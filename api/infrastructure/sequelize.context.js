@@ -4,7 +4,7 @@ const config = require('./config');
 const sequelize = new Sequelize({
   ...config.database,
   dialect: 'postgres',
-  operatorsAliases: false
+  operatorsAliases: '0'
 });
 
 module.exports = sequelize;
