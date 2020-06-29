@@ -30,11 +30,8 @@ app.use(routes);
 // Error handling
 app.use(errorInterceptor);
 
-// Starting server if we're in local-development mode
-if (config.env === 'local') {
-  app.listen(config.port, () => {
-    console.log(`Server started in development mode at port :${config.port}`);
-  });
-}
+app.listen(config.port, () => {
+  console.log(`Server started at port :${config.port}`);
+});
 
 module.exports = app;
