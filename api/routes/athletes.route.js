@@ -1,5 +1,6 @@
 const express = require('express');
 const responseFactory = require('../factories/response.factory');
+const AthleteBusiness = require('../business/athlete.business');
 
 const router = express.Router();
 
@@ -16,7 +17,9 @@ router.route('/')
    */
   .get(async (req, res, next) => {
     try {
-      res.json(responseFactory.success('cool'));
+      const athletes = await AthleteBusiness.get();
+
+      res.json(responseFactory.success(athletes));
     } catch (e) {
       next(e);
     }
