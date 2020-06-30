@@ -2,22 +2,23 @@ const models = require('../infrastructure/sequelize.context');
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
+    const skills = await queryInterface.sequelize.query(`select * from "Skills" s`);
+
+    if (skills && skills[0] && skills[0].length > 0) {
+      console.log('Seed already runned, skipping');
+      return true;
+    }
+    
     await queryInterface.bulkInsert('Skills',
       [
         {
           id: 1,
           name: 'Winter sports',
-          relatedSkills: [
-            'Snowboarding',
-            'Skiing'
-          ],
         },
         {
           id: 2,
           name: 'Snowboarding',
-          relatedSkills: [
-            'Skiing'
-          ],
+          superset: 'Winter sports',
         },
         {
           id: 3,
@@ -26,9 +27,7 @@ module.exports = {
         {
           id: 4,
           name: 'Skiing',
-          relatedSkills: [
-            'Snowboarding',
-          ],
+          superset: 'Winter sports',
         },
         {
           id: 5,
@@ -42,16 +41,19 @@ module.exports = {
           id: 1,
           name: 'Anna Gasser',
           birthDate: new Date('1991-08-16'),
+          firstProfessionalExperienceDate: new Date('2010-01-01'),
         },
         {
           id: 2,
           name: 'Tess Ledeux',
           birthDate: new Date('2001-11-23'),
+          firstProfessionalExperienceDate: new Date('2016-01-01'),
         },
         {
           id: 3,
           name: 'Nairo Quintana',
           birthDate: new Date('1990-02-04'),
+          firstProfessionalExperienceDate: new Date('2012-01-01'),
         },
       ], {});
 
