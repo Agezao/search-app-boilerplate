@@ -1,12 +1,22 @@
 FROM mhart/alpine-node:12
 
-RUN apk add --no-cache --virtual .build-deps curl
+WORKDIR /site
+
+COPY ./site .
+
+RUN npm i
+
+RUN npm uninstall node-sass && npm install node-sass
+
+RUN npm run build
 
 WORKDIR /api
 
+RUN mv /site/build ./build
+
 COPY package.json ./
 
-COPY . .
+COPY ./api .
 
 RUN npm i
 

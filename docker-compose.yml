@@ -13,7 +13,8 @@ services:
       - ./database/data:/var/lib/postgresql/data
   api:
     build:
-      context: ./api
+      context: .
+      dockerfile: ./api/dockerfile
     ports:
       - "8080:8080"
     depends_on:
