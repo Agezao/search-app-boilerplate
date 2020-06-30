@@ -11,3 +11,14 @@ services:
       - POSTGRES_DB=search-app
     volumes:
       - ./database/data:/var/lib/postgresql/data
+  api:
+    build:
+      context: ./api
+    ports:
+      - "8080:8080"
+    depends_on:
+      - "database"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=prod
+      - DB_HOST=database
