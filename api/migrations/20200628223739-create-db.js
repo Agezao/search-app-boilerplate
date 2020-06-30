@@ -15,6 +15,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DataTypes.DATE,
       },
+      firstProfessionalExperienceDate: {
+        allowNull: true,
+        type: Sequelize.DataTypes.DATE,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DataTypes.DATE,
@@ -38,9 +42,8 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DataTypes.STRING,
       },
-      relatedSkills: {
-        allowNull: true,
-        type: Sequelize.DataTypes.ARRAY(Sequelize.DataTypes.STRING),
+      superset: {
+        type: Sequelize.DataTypes.STRING,
       },
     });
 
