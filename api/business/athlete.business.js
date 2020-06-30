@@ -9,18 +9,19 @@ const get = async ({
   professionalExperienceYears,
 } = {}) => {
 
-  const where = {
-    birthDate: {},
-  };
+  const where = { };
+  const whereSkills = { };
 
   if (name) where.name = { [like]: `%${name}%` };
+
+  if (ageRangeStart || ageRangeEnd) where.birthDate = {};
 
   if (ageRangeStart) where.birthDate = { ...where.birthDate, [lte]: ageRangeStart };
 
   if (ageRangeEnd) where.birthDate = { ...where.birthDate, [gte]: ageRangeEnd };
 
   if (skills) {
-    where[or] = [
+    whereSkills[or] = [
       { "$skills.name$": { [opIn]: skills } },
       { "$skills.superset$": { [opIn]: skills } }
     ];
@@ -28,14 +29,22 @@ const get = async ({
 
   if (professionalExperienceYears) where.firstProfessionalExperienceDate = { [lte]: professionalExperienceYears };
 
-  const include = [
-    { model: models.Skill, as: 'skills' },
+  const includeFactory = (whereSkills) => [
+    { model: models.Skill, as: 'skills', where: whereSkills },
     { model: models.AthleteChampionship, as: 'championships' },
   ];
 
+  const athleteIds = (await models.Athlete.findAll({
+      attributes: ['id'],
+      include: includeFactory(whereSkills),
+      where 
+    })).map(a => a.id);
+
   return models.Athlete.findAll({
-    include,
-    where,
+    include: includeFactory(),
+    where: {
+      "id": { [opIn]: athleteIds }
+    },
   });
 }
 

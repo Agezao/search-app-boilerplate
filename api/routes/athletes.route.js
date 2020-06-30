@@ -12,7 +12,7 @@ router.route('/')
    * Get athletes via search params
    * @group Athletes - Operations to manipulate Athletes
    * @operationId athletesGet
-   * @route GET /athletes
+   * @route GET /api/athletes
    * @produces application/json
    * @param {string} name.query - Athlete's name
    * @param {string} ageRangeStart.query - Athlete's age range start

@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const cors = require('cors');
 const bodyparser = require('body-parser');
 const config = require('./infrastructure/config');
@@ -24,8 +25,16 @@ app.options(`*`, (req, res) => {
   res.status(200).send()
 });
 
+// Serve the static files from the React app
+app.use(express.static(path.join(__dirname, 'build')));
+
 // API definition
-app.use(routes);
+app.use('/api', routes);
+
+// Handles any requests that don't match the ones above to react app
+app.get('*', (req,res) =>{
+  res.sendFile(path.join(__dirname+'/build/index.html'));
+});
 
 // Error handling
 app.use(errorInterceptor);

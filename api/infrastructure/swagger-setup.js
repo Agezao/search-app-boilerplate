@@ -14,7 +14,7 @@ const swaggerSetup = (app) => {
       schemes: ['http', 'https'],
     },
     route: {
-      url: '/api-docs',
+      url: '/api/api-docs',
       docs: '/api-docs.json',
     },
     basedir: __dirname,
