@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "seed-db": "sequelize db:seed:all --debug",
-    "undo-seed-db": "sequelize db:seed:undo:all --debug",
-    "migrate-db": "sequelize db:migrate --debug"
+    "seed-db": "NODE_ENV=production sequelize db:seed:all --config infrastructure/config.js --debug",
+    "undo-seed-db": "NODE_ENV=production sequelize db:seed:undo:all --config infrastructure/config.js --debug",
+    "migrate-db": "NODE_ENV=production sequelize db:migrate --config infrastructure/config.js --debug",
+    "prestart": "npm run migrate-db && npm run seed-db",
+    "start": "node index.js"
   },
   "dependencies": {
     "@hapi/joi": "^15.1.1",
