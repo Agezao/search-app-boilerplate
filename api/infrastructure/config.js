@@ -13,15 +13,23 @@ const getEnvVar = (property, defaultValue) => {
 const config = {
   'env': getEnvVar('NODE_ENV', 'dev'),
   'port': getEnvVar('PORT', '8080'),
-  'database': {
-    'host': getEnvVar('DATABASE_HOST', "localhost"),
-    'port': getEnvVar('DATABASE_PORT', "5432"),
-    'username': getEnvVar('DATABASE_USER', "development"),
-    'password': getEnvVar('DATABASE_PASSWORD', "devdatabase"),
-    'database': getEnvVar('DATABASE_NAME', "search-app"),
-  },
   'sequelizeDefaults': {
     'freezeTableName': true,
+  },
+  'database': {
+    'host': getEnvVar('DB_HOST', "localhost"),
+    'port': getEnvVar('DB_PORT', "5432"),
+    'username': getEnvVar('DB_USER', "development"),
+    'password': getEnvVar('DB_PASSWORD', "devdatabase"),
+    'database': getEnvVar('DB_NAME', "search-app"),
+  },
+  'production': { // db-config for sequelize migrations
+    'host': getEnvVar('DB_HOST', "database"),
+    'port': getEnvVar('DB_PORT', "5432"),
+    'username': getEnvVar('DB_USER', "development"),
+    'password': getEnvVar('DB_PASSWORD', "devdatabase"),
+    'database': getEnvVar('DB_NAME', "search-app"),
+    "dialect": "postgres",
   },
 };
 
