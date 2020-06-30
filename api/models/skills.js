@@ -5,7 +5,7 @@ const sequelizeContext = require('../infrastructure/sequelize.context');
 const Skill = sequelizeContext.define('Skill',
   {
     name: DataTypes.STRING,
-    relatedSkills: DataTypes.ARRAY(DataTypes.STRING),
+    superset: DataTypes.STRING,
   },
   {
     sequelize: sequelizeContext,

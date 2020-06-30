@@ -6,6 +6,7 @@ const Athlete = sequelizeContext.define('Athlete',
   {
     name: DataTypes.STRING,
     birthDate: DataTypes.DATEONLY,
+    firstProfessionalExperienceDate: DataTypes.DATEONLY,
   },
   {
     sequelize: sequelizeContext,
