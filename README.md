@@ -2,7 +2,7 @@
 Simple boilerplate for a search app using react, express, sequelize (orm) and postgres. Deployed via docker.
 
 ## Demo 🚀
-<a href="https://google.com" target="_blank">Running demo</a>
+Live demo at: <a href="https://searchboilerplate.ml/" target="_blank">https://searchboilerplate.ml/</a> _(or run locally, instructions below)_
 
 ## Why?
 Serve as starting point for similar apps or just code-reference for similar implementations.
