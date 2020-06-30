@@ -24,5 +24,7 @@ Using `postgres` as database and using sequelize as ORM, extending sequelize `mi
 
 API built with express and with consistency and longevity in mind (using validations, error management, and many other resources). Dive into the express setup and booting to know more of what's happening under the hood. API documentation live ar `localhost:8080/api/api-docs`, the docs where built with swagger and using swagger generator for convenience and clarity between the dev team on the development time.
 
+Basic react app bundled in to interact with the Search-Api without the need to run `curl` requests. Built with chakra-ui as component lib, using scss, styled-components and overall trying to keep a simple and yet elegant react app (both, in code and in visuals). It also serves as a good example of how to integrate a react app into the CD pipeline into a outer project (in this case, api + db on docker-compose, wich would be helpful in a swarn environment)
+
 # 
 _thanks for reading_
